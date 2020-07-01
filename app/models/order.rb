@@ -7,9 +7,6 @@ class Order < ApplicationRecord
 
   enum status: %w(ordered paid cancelled completed)
 
-  def format_date(date)
-    date.strftime('%m/%d/%Y at %l:%M %P')
-  end
 
   def create_order_items(cart)
     items = Item.find(cart.keys.map { |key| key.to_i })
